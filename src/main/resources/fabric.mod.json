@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "blockgod",
+	"version": "${version}",
+	"name": "BlockGod",
+	"description": "This is a bot that can fight entities. This is a learning project dont expect much",
+	"authors": [
+		"NormalV"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/blockgod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.normalv.BlockGod"
+		],
+		"fabric-datagen": [
+			"net.normalv.BlockGodDataGenerator"
+		]
+	},
+	"mixins": [
+		"blockgod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
