@@ -18,6 +18,9 @@
 		"main": [
 			"net.normalv.BlockGod"
 		],
+      "client": [
+        "net.normalv.BlockGod"
+      ],
 		"fabric-datagen": [
 			"net.normalv.BlockGodDataGenerator"
 		]
