@@ -2,23 +2,31 @@ package net.normalv;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.normalv.systems.managers.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class BlockGod implements ModInitializer {
 	public static final String MOD_ID = "blockgod";
-
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
+    public static final String MOD_NAME = "["+ BlockGod.MOD_ID.toUpperCase()+"]";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static TextManager textManager;
+    public static PlayerManager playerManager;
+    public static TargetManager targetManager;
+    public static WorldManager worldManager;
+    public static ToolManager toolManager;
+    public static EventManager eventManager;
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		LOGGER.info("Welcome to "+MOD_ID+" a not so friendly bot!");
 
-		LOGGER.info("Hello Fabric world!");
+        textManager = new TextManager();
+        playerManager = new PlayerManager();
+        targetManager = new TargetManager();
+        worldManager = new WorldManager();
+        toolManager = new ToolManager();
+        eventManager = new EventManager();
 	}
 }
