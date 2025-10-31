@@ -5,7 +5,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.input.KeyInput;
 import net.minecraft.text.Text;
-import net.normalv.BlockGod;
+import net.normalv.BlockFighter;
 import net.normalv.util.interfaces.Util;
 
 import java.awt.*;
@@ -24,16 +24,16 @@ public class BlockGodGui extends Screen implements Util {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float deltaTicks) {
-        context.drawCenteredTextWithShadow(mc.textRenderer, BlockGod.MOD_NAME, width/2, 20, Color.WHITE.hashCode());
+        context.drawCenteredTextWithShadow(mc.textRenderer, BlockFighter.MOD_NAME, width/2, 20, Color.WHITE.hashCode());
         super.render(context, mouseX, mouseY, deltaTicks);
     }
 
     @Override
     public boolean keyPressed(KeyInput input) {
         if(isAssigningKey) {
-            BlockGod.textManager.sendTextClientSide(Text.literal("Assigned new key for gui : ").append(Text.literal(input.toString())));
+            BlockFighter.textManager.sendTextClientSide(Text.literal("Assigned new key for gui : ").append(Text.literal(input.toString())));
             return true;
-        } else if(BlockGod.guiBinding.matchesKey(input)) {
+        } else if(BlockFighter.guiBinding.matchesKey(input)) {
             close();
             return true;
         }

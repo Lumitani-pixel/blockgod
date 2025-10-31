@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "blockgod",
+	"id": "blockfighter",
 	"version": "${version}",
-	"name": "BlockGod",
+	"name": "BlockFighter",
 	"description": "This is a bot that can fight entities. This is a learning project dont expect much",
 	"authors": [
 		"NormalV"
@@ -12,21 +12,21 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/blockgod/icon.png",
+	"icon": "assets/blockfighter/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.normalv.BlockGod"
+          "net.normalv.BlockFighter"
 		],
       "client": [
-        "net.normalv.BlockGod"
+        "net.normalv.BlockFighter"
       ],
 		"fabric-datagen": [
-			"net.normalv.BlockGodDataGenerator"
+          "net.normalv.BlockFighterDataGenerator"
 		]
 	},
 	"mixins": [
-		"blockgod.mixins.json"
+      "blockfighter.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.3",

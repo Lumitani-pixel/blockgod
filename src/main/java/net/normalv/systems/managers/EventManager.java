@@ -1,7 +1,7 @@
 package net.normalv.systems.managers;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.normalv.BlockGod;
+import net.normalv.BlockFighter;
 import net.normalv.systems.gui.screens.BlockGodGui;
 
 public class EventManager extends Manager{
@@ -10,22 +10,22 @@ public class EventManager extends Manager{
     public void registerEvents() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             handleInput();
-            if(BlockGod.fightBot.isEnabled()) BlockGod.fightBot.onTick();
-            BlockGod.toolManager.toolTick();
+            if(BlockFighter.fightBot.isEnabled()) BlockFighter.fightBot.onTick();
+            BlockFighter.toolManager.toolTick();
         });
     }
 
     //TODO: Find a better way to listen to key input
     private void handleInput() {
-        boolean guiPressed = BlockGod.guiBinding.isPressed();
-        boolean togglePressed = BlockGod.toggleBinding.isPressed();
+        boolean guiPressed = BlockFighter.guiBinding.isPressed();
+        boolean togglePressed = BlockFighter.toggleBinding.isPressed();
 
         // When key is first pressed
         if (!wasPressed && guiPressed) {
             mc.setScreen(BlockGodGui.getInstance());
             wasPressed = true;
         } else if (!wasPressed && togglePressed) {
-            BlockGod.fightBot.toggle();
+            BlockFighter.fightBot.toggle();
             wasPressed = true;
         }
 

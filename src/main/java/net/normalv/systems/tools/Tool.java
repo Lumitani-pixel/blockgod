@@ -1,6 +1,6 @@
 package net.normalv.systems.tools;
 
-import net.normalv.BlockGod;
+import net.normalv.BlockFighter;
 import net.normalv.util.interfaces.Util;
 
 public class Tool implements Util {
@@ -36,17 +36,17 @@ public class Tool implements Util {
     }
 
     public void enable() {
-        BlockGod.textManager.sendTextClientSide(BlockGod.textManager.getToggleMsg(this, true));
+        BlockFighter.textManager.sendTextClientSide(BlockFighter.textManager.getToggleMsg(this, true));
         onEnabled();
     }
 
     public void disable() {
-        BlockGod.textManager.sendTextClientSide(BlockGod.textManager.getToggleMsg(this, false));
+        BlockFighter.textManager.sendTextClientSide(BlockFighter.textManager.getToggleMsg(this, false));
         onDisabled();
     }
 
     public void info(String info) {
-        BlockGod.textManager.sendTextClientSide(BlockGod.textManager.getInfoMsg(this, info));
+        BlockFighter.textManager.sendTextClientSide(BlockFighter.textManager.getInfoMsg(this, info));
     }
 
     public boolean isEnabled() {

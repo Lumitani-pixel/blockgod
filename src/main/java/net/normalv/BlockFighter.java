@@ -3,7 +3,6 @@ package net.normalv;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
@@ -15,12 +14,12 @@ import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BlockGod implements ModInitializer, ClientModInitializer, Util {
-	public static final String MOD_ID = "blockgod";
-    public static final String MOD_NAME = "["+ BlockGod.MOD_ID.toUpperCase()+"]";
+public class BlockFighter implements ModInitializer, ClientModInitializer, Util {
+	public static final String MOD_ID = "blockfighter";
+    public static final String MOD_NAME = "["+ BlockFighter.MOD_ID.toUpperCase()+"]";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of(BlockGod.MOD_ID, "binds"));
+    public static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of(BlockFighter.MOD_ID, "binds"));
 
     public static KeyBinding guiBinding;
     public static KeyBinding toggleBinding;
@@ -51,20 +50,20 @@ public class BlockGod implements ModInitializer, ClientModInitializer, Util {
     @Override
     public void onInitializeClient() {
         guiBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key."+BlockGod.MOD_ID+".gui",
+                "key."+ BlockFighter.MOD_ID+".gui",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_RIGHT_SHIFT,
                 CATEGORY
         ));
         toggleBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key."+BlockGod.MOD_ID+".toggle",
+                "key."+ BlockFighter.MOD_ID+".toggle",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_COMMA,
                 CATEGORY
         ));
 
-        BlockGod.eventManager.registerEvents();
-        BlockGod.toolManager.init();
+        BlockFighter.eventManager.registerEvents();
+        BlockFighter.toolManager.init();
     }
 
     public static boolean isInGame() {

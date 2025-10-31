@@ -2,7 +2,7 @@ package net.normalv.systems.fightbot;
 
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
-import net.normalv.BlockGod;
+import net.normalv.BlockFighter;
 import net.normalv.util.interfaces.Util;
 
 import java.util.ArrayList;
@@ -13,16 +13,16 @@ public class FightBot implements Util {
     private boolean isEnabled = false;
 
     public void onTick() {
-        if(!BlockGod.isInGame()) return;
+        if(!BlockFighter.isInGame()) return;
     }
 
     private void enable(){
-        BlockGod.textManager.sendTextClientSide(Text.literal("FightBot enabled"));
+        BlockFighter.textManager.sendTextClientSide(Text.literal("FightBot enabled"));
         isEnabled = true;
     }
 
     private void disable() {
-        BlockGod.textManager.sendTextClientSide(Text.literal("FightBot disabled"));
+        BlockFighter.textManager.sendTextClientSide(Text.literal("FightBot disabled"));
         isEnabled = false;
     }
 
