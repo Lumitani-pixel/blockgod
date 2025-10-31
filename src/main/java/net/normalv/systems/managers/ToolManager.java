@@ -1,5 +1,6 @@
 package net.normalv.systems.managers;
 
+import net.normalv.BlockGod;
 import net.normalv.systems.tools.Tool;
 
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class ToolManager extends Manager{
     }
 
     public void toolTick() {
+        if(!BlockGod.isInGame()) return;
         for(Tool tool : tools) tool.onTick();
     }
 }

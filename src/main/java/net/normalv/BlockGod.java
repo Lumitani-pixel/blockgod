@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
+import net.normalv.systems.fightbot.FightBot;
 import net.normalv.systems.managers.*;
 import net.normalv.util.interfaces.Util;
 import org.lwjgl.glfw.GLFW;
@@ -31,6 +32,8 @@ public class BlockGod implements ModInitializer, ClientModInitializer, Util {
     public static ToolManager toolManager;
     public static EventManager eventManager;
 
+    public static FightBot fightBot;
+
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Welcome to "+MOD_ID+" a not so friendly bot!");
@@ -41,6 +44,8 @@ public class BlockGod implements ModInitializer, ClientModInitializer, Util {
         worldManager = new WorldManager();
         toolManager = new ToolManager();
         eventManager = new EventManager();
+
+        fightBot = new FightBot();
 	}
 
     @Override

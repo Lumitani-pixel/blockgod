@@ -9,8 +9,9 @@ public class EventManager extends Manager{
 
     public void registerEvents() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            BlockGod.toolManager.toolTick();
             handleInput();
+            if(BlockGod.fightBot.isEnabled()) BlockGod.fightBot.onTick();
+            BlockGod.toolManager.toolTick();
         });
     }
 
@@ -24,6 +25,7 @@ public class EventManager extends Manager{
             mc.setScreen(BlockGodGui.getInstance());
             wasPressed = true;
         } else if (!wasPressed && togglePressed) {
+            BlockGod.fightBot.toggle();
             wasPressed = true;
         }
 
