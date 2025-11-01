@@ -3,22 +3,16 @@ package net.normalv.systems.managers;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.slot.SlotActionType;
 import net.normalv.util.player.FindItemResult;
 
 public class PlayerManager extends Manager{
     private static float minHealth = 5.0f;
+    private ItemStack bestSword;
 
     public FindItemResult findItem(Item item) {
         for(int i = 0; i<46; i++) {
@@ -38,18 +32,20 @@ public class PlayerManager extends Manager{
         return true;
     }
 
-    public void sortInventory() {
-    }
-
     public double getAttackDamage(ItemStack stack) {
         AttributeModifiersComponent modifiers = stack.get(DataComponentTypes.ATTRIBUTE_MODIFIERS);
-        if (modifiers == null) return 0.0;
+        if (modifiers==null) return 0.0;
 
         return modifiers.applyOperations(0.0, EquipmentSlot.MAINHAND);
     }
 
     public float getMiningSpeed(ItemStack stack, BlockState state) {
         return stack.getMiningSpeedMultiplier(state);
+    }
+
+    public static boolean isSuitableFor(ItemStack stack, BlockState state) {
+        if (stack == null || stack.isEmpty()) return false;
+        return stack.isSuitableFor(state);
     }
 
     public boolean shouldHeal() {

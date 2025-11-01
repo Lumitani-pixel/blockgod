@@ -2,7 +2,7 @@ package net.normalv.systems.managers;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.normalv.BlockFighter;
-import net.normalv.systems.gui.screens.BlockGodGui;
+import net.normalv.systems.gui.screens.BlockFighterGui;
 
 public class EventManager extends Manager{
     private boolean wasPressed = false;
@@ -22,7 +22,7 @@ public class EventManager extends Manager{
 
         // When key is first pressed
         if (!wasPressed && guiPressed) {
-            mc.setScreen(BlockGodGui.getInstance());
+            mc.setScreen(BlockFighterGui.getInstance());
             wasPressed = true;
         } else if (!wasPressed && togglePressed) {
             BlockFighter.fightBot.toggle();

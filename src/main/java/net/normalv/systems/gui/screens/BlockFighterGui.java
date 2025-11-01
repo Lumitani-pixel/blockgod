@@ -10,15 +10,15 @@ import net.normalv.util.interfaces.Util;
 
 import java.awt.*;
 
-public class BlockGodGui extends Screen implements Util {
-    private static BlockGodGui instance;
+public class BlockFighterGui extends Screen implements Util {
+    private static BlockFighterGui instance;
     private static boolean isAssigningKey = false;
 
     static {
-        instance = new BlockGodGui();
+        instance = new BlockFighterGui();
     }
 
-    protected BlockGodGui() {
+    protected BlockFighterGui() {
         super(Text.literal("Block God GUI"));
     }
 
@@ -50,8 +50,8 @@ public class BlockGodGui extends Screen implements Util {
         return false;
     }
 
-    public static BlockGodGui getInstance() {
-        if(instance==null) instance = new BlockGodGui();
+    public static BlockFighterGui getInstance() {
+        if(instance==null) instance = new BlockFighterGui();
         return instance;
     }
 
